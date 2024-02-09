@@ -1,9 +1,19 @@
 // Zadání: Předstírejme, že na stránce je složitý formulář, do kterého uživatel možná pracně vyplnil nějaká data. Po kliku na odkaz se radši uživatele zeptejte pomocí `confirm`, jestli chce opravdu odejít na jinou stránku a tím ztratit rozpracovanou práci. Pokud otázku nepotvrdí, nechce odejít, zamezte přesměrování pomocí `event.preventDefault()`.
 
 export const Bonus = () => {
+  const handleClick = (event) => {
+    let text = 'Opravdu chcete odejit a ztratit tak ulozenou praci?';
+    if (confirm(text) == false) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <>
-      Odkaz: <a href="https://www.czechitas.cz/">www.czechitas.cz</a>
+      Odkaz:{' '}
+      <a href="https://www.czechitas.cz/" onClick={handleClick}>
+        www.czechitas.cz
+      </a>
       <hr />
       Formulář:
       <form>

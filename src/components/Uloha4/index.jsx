@@ -2,5 +2,13 @@
 // Zadání 2: Pokud uživatel z textového políčka vše smaže, vypište „Uživatel nenapsal nic“.
 
 export const Uloha4 = () => {
-  return <input />;
+  const handleChange = (event) => {
+    console.log('Uzivatel napsal ' + event.target.value);
+
+    if (event.target.value === '') {
+      console.log('Uzivatel nenapsal nic');
+    }
+  };
+
+  return <input type="text" onChange={handleChange} />;
 };
